@@ -1,4 +1,4 @@
-#write a workflow file for github actions
+#write a workflow file for github action
 echo "name: CI
 on: [push]
 jobs:
