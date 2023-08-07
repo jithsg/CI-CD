@@ -1,5 +1,4 @@
-#write a workflow file for github action
-echo "name: CI
+name: CI
 on: [push]
 jobs:
   build:
@@ -8,6 +7,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
+        sudo apt-get update
         sudo apt-get install -y python3-pip
         pip3 install -r requirements.txt
     - name: Run tests
@@ -17,6 +17,5 @@ jobs:
       run: |
         python3 -m black .
     - name: lint code
-        run: |
-            python3 -m pylint *.py
-
+      run: |
+        python3 -m pylint *.py
