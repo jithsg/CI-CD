@@ -1,0 +1,22 @@
+#write a workflow file for github actions
+echo "name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y python3-pip
+        pip3 install -r requirements.txt
+    - name: Run tests
+      run: |
+        python3 -m pytest -v
+    - name: format code
+      run: |
+        python3 -m black .
+    - name: lint code
+        run: |
+            python3 -m pylint *.py
+
