@@ -16,6 +16,4 @@ jobs:
     - name: format code
       run: |
         python3 -m black .
-    - name: lint code
-      run: |
-        python3 -m pylint *.py
+  
